@@ -1,0 +1,46 @@
+<html
+	xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+	data-namespace-typo3-fluid="true">
+<p class="lead">{f:translate(key:'report.description',extensionName:'deprecationloganalyzer')}</p>
+
+<h3>{f:translate(key:'report.title',extensionName:'deprecationloganalyzer')}</h3>
+<f:if condition="{isDisabled}">
+	<f:then>
+		<f:be.infobox state="-1" title="{f:translate(key:'log-disabled.title',extensionName:'deprecationloganalyzer')}">
+			{f:translate(key:'log-disabled.description',extensionName:'deprecationloganalyzer')}
+		</f:be.infobox>
+	</f:then>
+	<f:else>
+		<ul>
+			<li>Unique deprecations: <strong>{unique -> f:count()}</strong></li>
+			<li>Duplicates saved: <strong>{duplicates}</strong></li>
+		</ul>
+
+		<f:if condition="{fileSize} > 10000000">
+			<f:then>
+				<f:be.infobox state="1" title="{f:translate(key:'log-size.title',extensionName:'deprecationloganalyzer')}">
+					<f:translate key="log-size.description" extensionName="deprecationloganalyzer"
+											 arguments="{0:formattedFileSize}"/>
+				</f:be.infobox>
+			</f:then>
+			<f:else>
+				<f:be.infobox state="-1" title="{f:translate(key:'log-size.title',extensionName:'deprecationloganalyzer')}">
+					<f:translate key="log-size.description" extensionName="deprecationloganalyzer"
+											 arguments="{0:formattedFileSize}"/>
+				</f:be.infobox>
+			</f:else>
+		</f:if>
+
+		<f:if condition="{unique}">
+			<f:for each="{unique}" as="line">
+				<div style="margin-bottom: 10px">
+					<pre><code>{line.msg -> f:format.nl2br()}</code></pre>
+				</div>
+			</f:for>
+		</f:if>
+
+	</f:else>
+</f:if>
+
+</html>

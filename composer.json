@@ -1,0 +1,39 @@
+{
+	"name": "georgringer/deprecationloganalyzer",
+	"type": "typo3-cms-extension",
+	"description": "Analyze the deprecation log and show only the unique entries.",
+	"keywords": [
+		"TYPO3",
+		"extension",
+		"deprecation",
+		"log"
+	],
+	"homepage": "http://ringer.it",
+	"authors": [
+		{
+			"name": "Georg Ringer",
+			"role": "Developer",
+			"homepage": "http://ringer.it"
+		}
+	],
+	"license": [
+		"GPL-2.0+"
+	],
+	"require": {
+		"typo3/cms-core": "^6.2 || ^7.6 || 8.7 "
+	},
+	"autoload": {
+		"psr-4": {
+			"GeorgRinger\\Deprecationloganalyzer\\": "Classes"
+		}
+	},
+	"replace": {
+		"deprecationloganalyzer": "self.version",
+		"typo3-ter/deprecationloganalyzer": "self.version"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.x-dev"
+		}
+	}
+}

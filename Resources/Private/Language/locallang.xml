@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Newsbanner extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="report.title">Deprecation Log Analyzer</label>
+			<label index="report.description">Hide duplicates and show unique entries. This makes it far easier to fight the deprecated code!</label>
+			<label index="log-disabled.title">Deprecationlog is disabled</label>
+			<label index="log-disabled.description">Enable the deprecation log to see which deprecated code is in use on your system.</label>
+			<label index="log-size.title">Filesize of log</label>
+			<label index="log-size.description">Current size of the log file is "%s".</label>
+			<label index="error_no-logfile-found">Logfile not found!</label>
+			<label index="error_logfile-not-readable">Logfile not readable</label>
+		</languageKey>
+	</data>
+</T3locallang>
