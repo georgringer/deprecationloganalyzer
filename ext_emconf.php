@@ -8,4 +8,11 @@ $EM_CONF[$_EXTKEY] = [
     'state' => 'stable',
     'author' => 'Georg Ringer',
     'author_email' => 'mail@ringer.it',
+    'constraints' => [
+        'depends' => [
+            'typo3' => '6.2.0-8.7.99',
+        ],
+        'conflicts' => [],
+        'suggests' => []
+    ]
 ];
