@@ -2,7 +2,6 @@
 
 namespace GeorgRinger\Deprecationloganalyzer;
 
-
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Reports\Controller\ReportController;
@@ -69,7 +68,7 @@ class Report implements ReportInterface
     /**
      * Check if deprecation log is enabled
      *
-     * @return boolean
+     * @return bool
      */
     protected function isEnabled()
     {
@@ -85,5 +84,4 @@ class Report implements ReportInterface
         }
         return false;
     }
-
 }

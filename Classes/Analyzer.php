@@ -21,10 +21,10 @@ class Analyzer implements SingletonInterface
             throw new \Exception('error_no-logfile-found');
         }
 
-        $all2 = array();
+        $all2 = [];
         $handle = fopen($logFile, 'rb');
-        $hashMap = array();
-        $found = array();
+        $hashMap = [];
+        $found = [];
         $duplicates = 0;
 
         if ($handle) {
@@ -45,10 +45,10 @@ class Analyzer implements SingletonInterface
                     $duplicates++;
                     continue;
                 } else {
-                    $found[$h2] = array(
+                    $found[$h2] = [
                         'msg' => $line2,
                         'count' => 1
-                    );
+                    ];
                 }
 
                 $time2 = strtotime($time);
@@ -56,21 +56,20 @@ class Analyzer implements SingletonInterface
                     $line2 = substr($line, 16);
 //					$hash = md5($line2);
                     if (!isset($hashMap[$hash])) {
-                        $all2[] = array(
+                        $all2[] = [
                             'msg' => $line2,
                             'count' => 1,
                             'time' => $time
-                        );
+                        ];
 //						$hashMap[$hash] = 1;
                     } else {
                         $duplicates++;
-                        $all2[] = array();
+                        $all2[] = [];
                     }
                 } else {
                     $c = count($all2);
                     $all2[$c - 1]['msg'] .= $line;
                 }
-
             }
             fclose($handle);
         } else {
@@ -94,20 +93,18 @@ class Analyzer implements SingletonInterface
      */
     protected function stripBackTrace($line)
     {
-        $keys = array(' - require_once#', ' - require#', ' - include#', ' - GeneralUtility::callUserFunction#', ' - SC_alt_doc->processData#', ' - SC_alt_doc->main#');
-        $found = FALSE;
+        $keys = [' - require_once#', ' - require#', ' - include#', ' - GeneralUtility::callUserFunction#', ' - SC_alt_doc->processData#', ' - SC_alt_doc->main#'];
+        $found = false;
 
         foreach ($keys as $key) {
             if (!$found) {
                 $pos = strpos($line, $key);
-                if ($pos !== FALSE) {
-                    $found = TRUE;
+                if ($pos !== false) {
+                    $found = true;
                     $line = substr($line, 0, $pos);
                 }
-
             }
         }
         return $line;
     }
-
 }
