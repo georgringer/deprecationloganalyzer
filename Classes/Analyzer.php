@@ -54,14 +54,14 @@ class Analyzer implements SingletonInterface
                 $time2 = strtotime($time);
                 if ($time2) {
                     $line2 = substr($line, 16);
-//					$hash = md5($line2);
+                    //					$hash = md5($line2);
                     if (!isset($hashMap[$hash])) {
                         $all2[] = [
                             'msg' => $line2,
                             'count' => 1,
                             'time' => $time
                         ];
-//						$hashMap[$hash] = 1;
+                        //						$hashMap[$hash] = 1;
                     } else {
                         $duplicates++;
                         $all2[] = [];
